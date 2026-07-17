@@ -1,0 +1,20 @@
+name = "telegram-group-guard-bot"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+# KV namespace used to store group settings, pending captchas and join timestamps.
+# Create it with: wrangler kv namespace create BOT_KV
+# Then paste the returned "id" below.
+kv_namespaces = [
+  { binding = "BOT_KV", id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID" }
+]
+
+# Runs every 5 minutes to auto-decline expired captcha join requests.
+[triggers]
+crons = ["*/5 * * * *"]
+
+# Secrets (set with `wrangler secret put NAME`, never commit real values):
+#   TELEGRAM_BOT_TOKEN   -> token from @BotFather
+#   WEBHOOK_SECRET        -> random string, used to verify Telegram calls
+#   BOT_OWNER_ID          -> your numeric Telegram user id (for /broadcast etc, optional)

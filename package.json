@@ -1,0 +1,17 @@
+{
+  "name": "telegram-group-guard-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Telegram AI Admin bot: handles join requests with captcha, filters spam links/adult content, deployed on Cloudflare Workers.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "set-webhook": "node scripts/setWebhook.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260702.1",
+    "typescript": "^5.5.4",
+    "wrangler": "^3.78.0"
+  }
+}
